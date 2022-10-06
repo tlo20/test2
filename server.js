@@ -1,3 +1,5 @@
+// Cyclic app link: https://troubled-beanie-bat.cyclic.app/
+
 const express = require("express")
 const path = require("path")
 const app = express()
@@ -19,9 +21,10 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/CPA",(req,res)=>{
-    res.type('json')
+    //res.type('json')
     data.cpa().then(result=>{
-        res.send(result)
+        
+        res.send(JSON.stringify(result))
     },err=>{
         res.send(err)
     } )
@@ -38,7 +41,7 @@ app.get("/highGPA",(req,res)=>{
 })
 
 app.use((req, res, next) => {
-    res.status(404).send("404 Error! Unable to find the page.")
+    res.status(404).send("Error 404: page not found.")
   })
 
 data.prep().then(result=>{
