@@ -31,9 +31,16 @@ app.get("/CPA",(req,res)=>{
 })
 
 app.get("/highGPA",(req,res)=>{
-    res.type('json')
+   
     data.highGPA().then(result=>{
-        res.send(result)
+        res.send(`
+        <style>div{margin:15pt 0pt;}</style>
+        <h2>Highest GPA:</h2>
+        <div>Student ID: ${result.studId}</div>
+        <div>Name: ${result.name}</div>
+        <div>Program: ${result.program}</div>
+        <div>GPA: ${result.gpa}</div>
+        `)
     },err=>{
         res.send(err)
     })
