@@ -61,9 +61,15 @@ function getStudent(studentId){
 
 function addStudent(student){
     return new Promise( (resolve,reject)=>{
-        student.studId=students.length+1;
-        students.push(student);
-        resolve(student);
+        if (student!=undefined){
+            student.studId=students.length+1;
+            students.push(student);
+            resolve(student);            
+        }else{
+            reject("Unable to add student!")
+        }
+
+
     } )
 }
 
