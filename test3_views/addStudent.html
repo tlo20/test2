@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            form{width: 50%;margin: auto;}
+         
+        </style>
+    </head>
+    <body>
+        <form action="./addStudent" method="POST" >
+            <h1>Add student</h1>
+            <h2>Student Information</h2>
+            <span>Student Id:</span> <input type="text" name="studId"><br/>
+            <span>Student Name:</span> <input type="text" name="name"><br/>
+            <span>Program: </span>
+            <select name="program">
+                <option selected value="BSD">BSD</option>
+                <option value="CPA">CPA</option>
+                <option value="DSA">DSA</option>
+            </select><br/>
+            <span>GPA:</span> <input type="number" name="gpa"><br/>
+            <button>Add Student</button><button >Reset</button>
+        </form>
+            
+            
+        
+        
+    </body>
+</html>

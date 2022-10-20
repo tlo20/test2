@@ -14,11 +14,22 @@ function prep(){
     })
 }
 
+function allStudents(){
+    return new Promise( (resolve,reject)=>{
+        if (students.length==0){reject("No students found!");} 
+        else{resolve(students);}
+    });
+}
+
 function cpa(){
     return  new Promise( (resolve,reject)=> {
+        let results = [];
         if (students.length==0){reject("no results returned")}
         else{
-            resolve(students)
+            for (let s of students){
+                if (s.program=="CPA"){results.push(s);}
+            }
+            resolve(results)
         }
     }) 
 }
@@ -38,9 +49,33 @@ function highGPA(){
     }) 
 }
 
+function getStudent(studentId){
+    return new Promise( (resolve,reject)=>{
+        for (let s of students){
+            if (s.studId==studentId){resolve(s);}
+        }
+        reject("No record found");
+    } )
+}
+
+
+function addStudent(student){
+    return new Promise( (resolve,reject)=>{
+        student.studId=students.length+1;
+        students.push(student);
+        resolve(student);
+    } )
+}
+
+
+
 
 module.exports = {
    prep,
    cpa,
-   highGPA
+   highGPA,
+   allStudents,
+   addStudent,
+   getStudent,
+   
 }
